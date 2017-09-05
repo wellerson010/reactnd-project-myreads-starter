@@ -1,0 +1,45 @@
+.book {
+    width: 140px;
+}
+
+.bookTop{
+    position: relative;
+    height: 200px;
+}
+
+.containerSelectStatus{
+    position: absolute;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    bottom: 0;
+    background: #16668c;
+    background-image: url('icons/arrow-drop-down.svg');
+    border-top-left-radius: 40%;
+    cursor: pointer;
+}
+
+.cover {
+    border: 1px solid #ccc;
+    background-size: cover;
+    height: 100%;
+}
+
+.selectStatus{
+}
+
+/*
+
+  
+    containerSelectStatus: {
+       
+    },
+    bookTop: {
+        position: 'relative',
+        height: '200px',
+  //      display: 'flex',
+   //     alignItems: 'flex-end'
+    },
+    selectStatus: {
+        display: 'none'
+    }*/
