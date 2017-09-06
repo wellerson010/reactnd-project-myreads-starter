@@ -2,6 +2,11 @@
     width: 140px;
 }
 
+.bookAuthors {
+    color: #999;
+    font-size: 0.9rem;
+}
+
 .bookTop{
     position: relative;
     height: 200px;
@@ -26,20 +31,8 @@
 }
 
 .selectStatus{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 4px;
 }
-
-/*
-
-  
-    containerSelectStatus: {
-       
-    },
-    bookTop: {
-        position: 'relative',
-        height: '200px',
-  //      display: 'flex',
-   //     alignItems: 'flex-end'
-    },
-    selectStatus: {
-        display: 'none'
-    }*/

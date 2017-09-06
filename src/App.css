@@ -126,20 +126,3 @@ body, .app {
 .book-title {
   margin-top: 10px;
 }
-.book-authors {
-  color: #999;
-}
-
-.book-shelf-changer {
-  background-image: url('./icons/arrow-drop-down.svg');
-}
-
-/* book cover */
-
-
-/*
-.book-cover-title {
-  padding: 20px 10px 0;
-  text-align: center;
-  font-size: 0.8em;
-}*/
