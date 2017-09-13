@@ -8,6 +8,7 @@ export default class Shelf extends React.Component {
             <ShelfComponent 
                 title={this.props.title}
                 books={this.props.books}
+                changeBookFromShelf={this.props.changeBookFromShelf}
             />
         )
     }

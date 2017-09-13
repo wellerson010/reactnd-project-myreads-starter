@@ -1,17 +1,23 @@
 import React from 'react';
 
 import Book from '../../containers/Book';
+import styles from './Shelf.css';
 
-const Shelf = ({title, books}) => (
+const Shelf = ({title, books, changeBookFromShelf}) => (
     <div>
-        <h2>{title}</h2>
-        <div>
+        <h2 className={styles.title}>{title}</h2>
+        <div className={styles.containerBook}>
             { 
                 books.map(book => (
-                    <Book 
+                    <div 
+                        className={styles.book}
                         key={book.id}
-                        book={book}
-                    />
+                    >
+                        <Book
+                            book={book}
+                            changeBookFromShelf={changeBookFromShelf}
+                        />
+                    </div>
                 ))
             }
         </div>

@@ -1,0 +1,13 @@
+.containerBook {
+    display: flex;
+}
+
+.book {
+    margin: 0 7px;
+}
+
+.title {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}

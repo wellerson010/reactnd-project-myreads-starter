@@ -1,5 +1,6 @@
 import React from 'react';
 
+import * as BooksApi from '../api/BooksAPI';
 import BookComponent from '../components/Book/Book';
 
 export default class Book extends React.Component {
@@ -11,15 +12,21 @@ export default class Book extends React.Component {
     constructor(props) {
         super();
 
-        console.log(props.book);
-
         this.state.book = props.book;
     }
 
-    handleChangeSelectStatus = (value) => {
-        this.setState({
-            status: value
-        });
+    handleChangeSelectStatus = async (value) => {
+        await BooksApi.update(this.state.book, value);
+
+        this.props.changeBookFromShelf(this.state.book, value);
+   /*     this.setState((prevState) => {
+            return {
+                book: {
+                    ...prevState.book,
+                    shelf: value
+                }
+            }
+        }); */
     }
 
     handleClickContainerSelectStatus = () => {
@@ -35,11 +42,12 @@ export default class Book extends React.Component {
     }
 
     render() {
+        console.log(this.props.changeBookFromShelf);
         return (
             (this.state.book && <BookComponent
                 title={this.state.book.title}
                 authors="Autor"
-                status={this.state.book.status}
+                status={this.state.book.shelf}
                 showSelectStatus={this.state.showSelectStatus}
                 onClickContainerSelectStatus={this.handleClickContainerSelectStatus}
                 onClickSelectStatus={this.handleClickSelectStatus}
