@@ -1,7 +1,7 @@
 import React from 'react';
 
 import * as BooksAPI from '../api/BooksAPI';
-import Shelf from './Shelf';
+import ListBooksComponent from '../components/ListBooks/ListBooks';
 
 export default class ListBooks extends React.Component {
     state = {
@@ -47,23 +47,10 @@ export default class ListBooks extends React.Component {
         });
 
         return (
-            <div>
-                <Shelf 
-                    title="Currently Reading"
-                    books={booksShelf.currentlyReading}
-                    changeBookFromShelf={this.changeBookFromShelf}
-                />
-                <Shelf 
-                    title="Want to Read"
-                    books={booksShelf.wantToRead}
-                    changeBookFromShelf={this.changeBookFromShelf}
-                />
-                <Shelf 
-                    title="Read"
-                    books={booksShelf.read}
-                    changeBookFromShelf={this.changeBookFromShelf}
-                />
-            </div>
+            <ListBooksComponent 
+                booksShelf={booksShelf}
+                changeBookFromShelf={this.changeBookFromShelf}
+            />
         )
     }
 }
