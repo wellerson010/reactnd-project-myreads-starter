@@ -1,18 +1,15 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 
 import ListBooks from 'containers/ListBooks';
 
 
 class BooksApp extends React.Component {
-  state = {
-    showSearchPage: false
-  }
-
-
   render() {
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
+        <Route exact path="/" component={ListBooks} />
+        <Route path="/search" render={() => (
           <div className="search-books">
             <div className="search-books-bar">
               <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
@@ -25,9 +22,9 @@ class BooksApp extends React.Component {
               <ol className="books-grid"></ol>
             </div>
           </div>
-        ) : (
+        )} />
           <div className="list-books">
-             <ListBooks />
+           
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
@@ -48,7 +45,6 @@ class BooksApp extends React.Component {
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
           </div>
-        )}
       </div>
     )
   }
