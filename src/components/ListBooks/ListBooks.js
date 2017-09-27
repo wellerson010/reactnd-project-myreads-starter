@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Shelf from '../../containers/Shelf';
-import styles from './ListBooks.css';
+//import styles from './ListBooks.css';
 
 const ListBooks = ({booksShelf, changeBookFromShelf}) => (
     <div>

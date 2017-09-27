@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Search.css';
-import Shelf from '../../containers/Shelf';
+import Book from '../../containers/Book';
 
 const Search = ({ searchValue, handleChangeSearchValue, handleKeyInputSearch, books }) => (
     <div>
@@ -16,7 +16,7 @@ const Search = ({ searchValue, handleChangeSearchValue, handleKeyInputSearch, bo
                         handleChangeSearchValue(event.target.value)
                     }}
                     onKeyUp={(event) => {
-                        if (event.key == 'Enter') {
+                        if (event.key === 'Enter') {
                             handleKeyInputSearch()
                         }
                     }}
@@ -24,6 +24,12 @@ const Search = ({ searchValue, handleChangeSearchValue, handleKeyInputSearch, bo
             </div>
         </div>
         <div>
+            { books.map(book => (
+                <Book 
+                    key={book.id} 
+                    book={book}
+                />
+            ))}
         </div>
     </div>
 );

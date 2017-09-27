@@ -17,7 +17,9 @@ export default class Search extends React.Component {
     }
 
     handleKeyInputSearch = async () => {
-        const books = await BooksAPI.search(this.state.searchValue, 20);
+        const data = await BooksAPI.search(this.state.searchValue, 20);
+        
+        const books = (Array.isArray(data))?data:data.items;
 
         this.setState({
             books: books

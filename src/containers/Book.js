@@ -4,15 +4,13 @@ import * as BooksApi from '../api/BooksAPI';
 import BookComponent from '../components/Book/Book';
 
 export default class Book extends React.Component {
-    state = {
-        showSelectStatus: false,
-        book: null
-    };
-
     constructor(props) {
         super();
 
-        this.state.book = props.book;
+        this.state = {
+            showSelectStatus: false,
+            book: props.book
+        }
     }
 
     handleChangeSelectStatus = async (value) => {
@@ -42,7 +40,6 @@ export default class Book extends React.Component {
     }
 
     render() {
-        console.log(this.props.changeBookFromShelf);
         return (
             (this.state.book && <BookComponent
                 title={this.state.book.title}
