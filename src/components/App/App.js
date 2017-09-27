@@ -7,7 +7,7 @@ import Search from '../../containers/Search';
 
 const App = () => (
     <div className="app">
-        <div>
+        <div className={styles.containerTitle}>
             <h1 className={styles.title}>MyReads</h1>
         </div>
 

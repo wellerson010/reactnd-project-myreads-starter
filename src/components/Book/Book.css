@@ -2,6 +2,10 @@
     width: 140px;
 }
 
+.book:hover .containerSelectStatus, .book:hover .information{
+    opacity: 1;
+}
+
 .bookAuthors {
     color: #999;
     font-size: 0.9rem;
@@ -22,6 +26,8 @@
     background-image: url('icons/arrow-drop-down.svg');
     border-top-left-radius: 40%;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity .5s;
 }
 
 .cover {
@@ -35,4 +41,22 @@
     top: 100%;
     right: 0;
     padding: 4px;
+}
+
+.information{
+    background: #16668c;
+    color: #fff;
+    padding: 5px;
+    border-radius: 50%;
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 3px;
+    opacity: 0;
+    transition: opacity .5s;
+    cursor: pointer;
 }

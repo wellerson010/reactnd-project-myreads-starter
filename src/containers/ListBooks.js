@@ -6,14 +6,16 @@ import ListBooksComponent from '../components/ListBooks/ListBooks';
 
 export default class ListBooks extends React.Component {
     state = {
-        books: []
+        books: [],
+        loading: true
     };
 
     async componentDidMount(){
        const books = await BooksAPI.getAll();
 
         this.setState({
-            books: books
+            books: books,
+            loading: false
         });
     }
 
@@ -44,7 +46,7 @@ export default class ListBooks extends React.Component {
         });
 
         return (
-            <BlockUi blocking={true}>
+            <BlockUi blocking={this.state.loading}>
                 <ListBooksComponent 
                     booksShelf={booksShelf}
                     changeBookFromShelf={this.changeBookFromShelf}
