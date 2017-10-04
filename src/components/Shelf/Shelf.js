@@ -19,6 +19,7 @@ const Shelf = ({title, books, changeBookFromShelf}) => (
                         <Book
                             book={book}
                             changeBookFromShelf={changeBookFromShelf}
+                            avoidLoadingFalse={true}
                         />
                     </div>
                 ))

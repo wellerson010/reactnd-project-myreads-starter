@@ -4,45 +4,79 @@ import styles from './InformationBook.css';
 
 const InformationBook = ({ book }) => (
     <div className={styles.container}>
-        <h3>{book.subtitle}</h3>
-        <p>{book.averageRating}</p>
-        <img
-            src={book.imageLinks.thumbnail}
-        />
+        <div className={styles.mainContent}>
+            <img
+                className={styles.image}
+                src={book.imageLinks.thumbnail}
+                alt='Cover book'
+            />
+            <div className={styles.cotainerMasterInfoTitleInline}>
+                {
+                    book.subtitle && <div className={styles.containerInfoTitleInline}>
+                        <span className={styles.infoTitleInline}>Subtitle</span>
+                        <span>{book.subtitle}</span>
+                    </div>
+                }
+                <div className={styles.containerInfoTitleInline}>
+                    <span className={styles.infoTitleInline}>Average Rating</span>
+                    <span>{(book.averageRating) ? book.averageRating : '-'}</span>
+                </div>
+                {
+                    book.publisher && <div className={styles.containerInfoTitleInline}>
+                        <span className={styles.infoTitleInline}>Publisher</span>
+                        <span>{book.publisher}</span>
+                    </div>
+                }
+                {
+                    book.publishedDate && <div className={styles.containerInfoTitleInline}>
+                        <span className={styles.infoTitleInline}>Published Date</span>
+                        <span>{book.publishedDate}</span>
+                    </div>
+                }
+                {
+                    book.pageCount && <div className={styles.containerInfoTitleInline}>
+                        <span className={styles.infoTitleInline}>Pages</span>
+                        <span>{book.pageCount}</span>
+                    </div>
+                }
+
+                <div className={styles.containerInfoTitleInline}>
+                    <span className={styles.infoTitleInline}>Authors</span>
+                    {
+                        book.authors && book.authors.map(author => (
+                            <span key={author} className={styles.author}>{author}</span>
+                        ))
+                    }
+                </div>
+                {
+                    book.categories && <div className={styles.containerInfoTitleInline}>
+                        <span className={styles.infoTitleInline}>Categories</span>
+                        {
+                            book.categories && book.categories.map(category => (
+                                <span key={category} className={styles.listItem}>{category}</span>
+                            ))
+                        }
+                    </div>
+                }
+
+            </div>
+        </div>
+
         {
-            book.description && <div>
-                <p>Description</p>
+            book.description && <div className={styles.description}>
                 <p>{book.description}</p>
             </div>
         }
-        {
-            book.authors && <div>
-                <p>Authors</p>
-                {
-                    book.authors.map(author => (
-                        <p>{author}</p>
-                    ))
-                }
-            </div>
-        }
-        {
-            book.publisher && <div>
-                <p>Publisher</p>
-                <p>{book.publisher}</p>
-            </div>
-        }
-        {
-            book.publishedDate && <div>
-                <p>Published Date</p>
-                <p>{book.publishedDate}</p>
-            </div>
-        }
-        {
-            book.canonicalVolumeLink && <div>
-                <a href={book.canonicalVolumeLink} target="_blank">Open in Google Books</a>
-            </div>
-        }
-        
+
+        <div className={styles.containerLinks}>
+            {
+                book.previewLink && <a href={book.previewLink} target="_blank">Preview</a>
+            }
+            {
+                book.infoLink && <a href={book.infoLink} target="_blank">Info</a>
+            }
+        </div>
+
     </div>
 );
 

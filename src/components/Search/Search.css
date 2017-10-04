@@ -1,5 +1,15 @@
-.text {
+.input {
     padding: 7px;
     width: 100%;
     font-size: 20px;
+}
+
+.containerBook {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.book{
+    margin: 0 7px;
 }

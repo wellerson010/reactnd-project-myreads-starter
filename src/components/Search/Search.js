@@ -1,36 +1,44 @@
 import React from 'react';
+import BlockUi from 'react-block-ui';
+import { DebounceInput } from 'react-debounce-input';
 
 import styles from './Search.css';
 import Book from '../../containers/Book';
 
-const Search = ({ searchValue, handleChangeSearchValue, handleKeyInputSearch, books }) => (
+const Search = ({ searchValue, handleChangeSearchValue, results, loading, changeBookFromShelf }) => (
     <div>
         <div>
             <div>
-                <input
-                    type="text"
-                    placeholder="Search by title or author. Press enter"
-                    className={styles.text}
+                <DebounceInput
+                    minLength={3}
+                    placeholder="Search"
+                    debounceTimeout={300}
+                    className={styles.input}
                     value={searchValue}
                     onChange={(event) => {
                         handleChangeSearchValue(event.target.value)
                     }}
-                    onKeyUp={(event) => {
-                        if (event.key === 'Enter') {
-                            handleKeyInputSearch()
-                        }
-                    }}
                 />
             </div>
         </div>
-        <div>
-            { books.map(book => (
-                <Book 
-                    key={book.id} 
-                    book={book}
-                />
+        <BlockUi blocking={loading} className={styles.containerBook}>
+            {results.length > 0 && results.map(book => (
+                <div 
+                    className={styles.book}
+                    key={book.id}
+                >
+                    <Book
+                        changeBookFromShelf={changeBookFromShelf}
+                        book={book}
+                    />
+                </div>
             ))}
-        </div>
+            {
+                results.length === 0 && (
+                    <span>No books</span>
+                )
+            }
+        </BlockUi>
     </div>
 );
 

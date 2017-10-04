@@ -1,4 +1,59 @@
 .container{
     overflow: auto;
     max-height: 92%;
+    padding-top: 10px;
+}
+
+.mainContent{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.image{
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.cotainerMasterInfoTitleInline{
+    flex-grow: 1;
+}
+
+.containerInfoTitleInline{
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0;
+    margin-bottom: 6px;
+}
+
+.infoTitleInline{
+    width: 180px;
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.description{
+    padding: 10px;
+    background: #eeeded;
+}
+
+.containerLinks{
+    padding: 10px 0;
+    text-align: center;
+}
+
+.containerLinks a {
+    color: #fff;
+    background: #215871;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 6px;
+    margin-right: 9px;
+}
+
+.containerLinks a:hover {
+    background: #2390c1;
+}
+
+.listItem{
+    margin-right: 15px;
 }

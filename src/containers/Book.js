@@ -1,13 +1,13 @@
 import React from 'react';
 import SkyLight from 'react-skylight';
 
-import * as BooksApi from '../api/BooksAPI';
+import * as BooksApi from '../utils/BooksAPI';
 import BookComponent from '../components/Book/Book';
 import InformationBook from './InformationBook';
 
 export default class Book extends React.Component {
     constructor(props) {
-        super();
+        super(props);
 
         this.state = {
             showSelectStatus: false,
@@ -23,12 +23,13 @@ export default class Book extends React.Component {
 
         await BooksApi.update(this.state.book, value);
 
-        this.props.changeBookFromShelf(this.state.book, value);
+        await this.props.changeBookFromShelf(this.state.book, value);
 
-        /*
-        this.setState({
-            loading: false
-        }); */
+        if (!this.props.avoidLoadingFalse) {
+            this.setState({
+                loading: false
+            });
+        }
     }
 
     handleClickContainerSelectStatus = () => {
@@ -44,7 +45,6 @@ export default class Book extends React.Component {
     }
 
     handleClickInformation = () => {
-        console.log(this.state.book);
         this.simpleDialog.show();
     }
 

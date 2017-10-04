@@ -33,6 +33,14 @@
   font-size: 0;
 }
 
+.openSearch.add a {
+  background-image: url('icons/add.svg'); 
+}
+
+.openSearch.list a {
+  background-image: url('icons/list.svg'); 
+}
+
 .openSearch a:hover{
   background-color: #184C63;
 }
@@ -41,5 +49,7 @@
   max-width: 960px;
   width: 100%;
   margin: 60px auto 0;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 

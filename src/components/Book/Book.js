@@ -26,16 +26,16 @@ const Book = ({
                                 className={styles.selectStatus}
                                 value={status}
                             >
-                                <option value="none" disabled>Move to...</option>
+                                <option disabled>Move to...</option>
+                                <option value="none">None</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
-                                <option value="none">None</option>
                             </select>
                         }
                     </div>
                 </div>
-                <div className="book-title">{title}</div>
+                <div className={styles.title}>{title}</div>
                 <div className={styles.bookAuthors}>
                     { authors && authors.map(author => (
                         <p key={author}>{author}</p>
