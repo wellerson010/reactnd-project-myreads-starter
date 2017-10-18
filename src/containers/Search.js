@@ -43,12 +43,6 @@ export default class Search extends React.Component {
 
     changeBookFromShelf = async (book, shelf) => {
         await this.props.changeBookFromShelf(book, shelf);
-
-        let results = Array.from(this.state.results);
-        results = this.refreshShelfResults(results);
-        this.setState({
-            results: results
-        });
     }
 
 

@@ -10,27 +10,31 @@ export default class App extends React.Component {
     }
 
     changeBookFromShelf = async (book, shelf) => {
-        const books = Array.from(this.state.books);
+        return new Promise((resolve, reject) => {
+            const books = Array.from(this.state.books);
 
-        const bookIndex = books.findIndex(data => {
-            return (data.id === book.id);
-        });
-        
-        if (bookIndex > -1) {
-            if (shelf === 'none') { 
-                books.splice(bookIndex, 1);
+            const bookIndex = books.findIndex(data => {
+                return (data.id === book.id);
+            });
+
+            if (bookIndex > -1) {
+                if (shelf === 'none') {
+                    books.splice(bookIndex, 1);
+                }
+                else {
+                    books[bookIndex].shelf = shelf;
+                }
             }
-            else{
-                books[bookIndex].shelf = shelf;
+            else {
+                book.shelf = shelf;
+                books.push(book);
             }
-        }
-        else{
-            book.shelf = shelf;
-            books.push(book);
-        }
-        
-        this.setState({
-            books: books
+
+            this.setState({
+                books: books
+            }, () => {
+                resolve(books);
+            });
         });
     }
 

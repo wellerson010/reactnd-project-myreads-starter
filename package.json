@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-block-ui": "^1.0.3",
     "react-debounce-input": "^3.1.0",
@@ -73,7 +73,9 @@
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
