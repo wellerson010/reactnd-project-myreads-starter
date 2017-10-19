@@ -1,5 +1,6 @@
 import React from 'react';
 import BlockUi from 'react-block-ui';
+import PropTypes from 'prop-types';
 
 import styles from './Book.css';
 
@@ -44,5 +45,18 @@ const Book = ({
             </div>
         </BlockUi>
     );
+
+Book.propTypes = {
+    title: PropTypes.string,
+    authors: PropTypes.array,
+    imageUrl: PropTypes.string,
+    status: PropTypes.string,
+    showSelectStatus: PropTypes.bool,
+    onClickContainerSelectStatus: PropTypes.func.isRequired,
+    onClickSelectStatus: PropTypes.func.isRequired,
+    onChangeSelectStatus: PropTypes.func.isRequired,
+    onClickInformation: PropTypes.func.isRequired,
+    loading: PropTypes.bool
+}
 
 export default Book;

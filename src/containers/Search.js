@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import * as BooksAPI from '../utils/BooksAPI';
 import SearchComponent from '../components/Search/Search';
 
-export default class Search extends React.Component {
+class Search extends React.Component {
     state = {
         searchValue: '',
         results: [],
@@ -58,3 +59,10 @@ export default class Search extends React.Component {
         )
     }
 }
+
+Search.propTypes = {
+    books: PropTypes.array.isRequired,
+    changeBookFromShelf: PropTypes.func.isRequired
+}
+
+export default Search;

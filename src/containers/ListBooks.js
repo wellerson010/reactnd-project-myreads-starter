@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ListBooksComponent from '../components/ListBooks/ListBooks';
 
-export default class ListBooks extends React.Component {
+class ListBooks extends React.Component {
     render() {
         const booksShelf = {
             currentlyReading: [],
@@ -22,3 +23,10 @@ export default class ListBooks extends React.Component {
         )
     }
 }
+
+ListBooks.propType = {
+    books: PropTypes.array.isRequired,
+    changeBookFromShelf: PropTypes.func.isRequired
+}
+
+export default ListBooks;

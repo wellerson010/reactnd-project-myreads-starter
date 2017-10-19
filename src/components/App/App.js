@@ -1,6 +1,7 @@
 import React from 'react';
 import BlockUI from 'react-block-ui';
 import { Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import styles from './App.css';
 import ListBooks from '../../containers/ListBooks';
@@ -44,5 +45,11 @@ const App = ({ loading, books, changeBookFromShelf }) => (
         )} />
     </BlockUI>
 );
+
+App.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    books: PropTypes.array.isRequired,
+    changeBookFromShelf: PropTypes.func.isRequired
+}
 
 export default App;

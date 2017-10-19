@@ -1,11 +1,12 @@
 import React from 'react';
 import SkyLight from 'react-skylight';
+import PropTypes from 'prop-types';
 
 import * as BooksApi from '../utils/BooksAPI';
 import BookComponent from '../components/Book/Book';
 import InformationBook from './InformationBook';
 
-export default class Book extends React.Component {
+class Book extends React.Component {
     constructor(props) {
         super(props);
 
@@ -70,3 +71,12 @@ export default class Book extends React.Component {
         );
     }
 }
+
+Book.propTypes = {
+    book: PropTypes.object.isRequired,
+    avoidLoadingFalse: PropTypes.bool,
+    changeBookFromShelf: PropTypes.func.isRequired
+
+}
+
+export default Book;

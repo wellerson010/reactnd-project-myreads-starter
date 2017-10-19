@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './InformationBook.css';
 
@@ -79,5 +80,9 @@ const InformationBook = ({ book }) => (
 
     </div>
 );
+
+InformationBook.propTypes = {
+    book: PropTypes.object.isRequired
+}
 
 export default InformationBook;

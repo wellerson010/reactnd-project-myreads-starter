@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import InformationBookComponent from '../components/InformationBook/InformationBook';
 
-export default class InformationBook extends React.Component {
+class InformationBook extends React.Component {
     render(){
         return (
             <InformationBookComponent 
@@ -11,3 +12,9 @@ export default class InformationBook extends React.Component {
         )
     }
 }
+
+InformationBook.propTypes = {
+    book: PropTypes.object.isRequired
+}
+
+export default InformationBook;
